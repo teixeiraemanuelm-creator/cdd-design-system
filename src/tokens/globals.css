@@ -1,0 +1,148 @@
+/*
+ * CDD Design System v1.0
+ * CSS Custom Properties — aplicar no :root de cada produto
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ── Dark Theme (padrão) ─────────────────────────────────────────────── */
+:root,
+.dark {
+  /* Brand */
+  --cdd-gold:         #C6A96B;
+  --cdd-gold-light:   #D9C08A;
+  --cdd-gold-dark:    #A88B4E;
+  --cdd-steel:        #1F4B99;
+  --cdd-steel-light:  #2D5FBF;
+  --cdd-teal:         #4FD1C5;
+  --cdd-teal-light:   #76DDD4;
+
+  /* Semantic — backgrounds */
+  --bg-base:      #0B0D0F;
+  --bg-primary:   #121417;
+  --bg-card:      #1A1E23;
+  --bg-elevated:  #222830;
+  --bg-hover:     #2C3340;
+
+  /* Semantic — text */
+  --text-primary:   #F4F6F8;
+  --text-secondary: #9AA3AE;
+  --text-tertiary:  #616B77;
+  --text-disabled:  #404850;
+
+  /* Semantic — border */
+  --border-subtle:  #1E2329;
+  --border-default: #2C3340;
+  --border-strong:  #3E4A58;
+
+  /* Interactive */
+  --primary:           #C6A96B;
+  --primary-hover:     #D9C08A;
+  --primary-foreground:#0B0D0F;
+  --accent:            #4FD1C5;
+  --accent-hover:      #76DDD4;
+  --accent-foreground: #0B0D0F;
+  --info:              #1F4B99;
+  --info-light:        #2D5FBF;
+
+  /* States */
+  --success:      #2F9E44;
+  --success-bg:   rgba(47,158,68,0.12);
+  --success-border: rgba(47,158,68,0.25);
+  --warning:      #F59F00;
+  --warning-bg:   rgba(245,159,0,0.12);
+  --warning-border: rgba(245,159,0,0.25);
+  --error:        #E03131;
+  --error-bg:     rgba(224,49,49,0.12);
+  --error-border: rgba(224,49,49,0.25);
+
+  /* Focus ring */
+  --ring-color: rgba(198,169,107,0.5);
+  --ring: 0 0 0 2px var(--ring-color);
+
+  /* Radius */
+  --radius-xs: 4px;  --radius-sm: 6px;
+  --radius-md: 10px; --radius-lg: 14px;
+  --radius-xl: 20px; --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.45);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.55);
+  --shadow-glow-gold:  0 0 0 1px rgba(198,169,107,0.3), 0 4px 16px rgba(198,169,107,0.15);
+  --shadow-glow-steel: 0 0 0 1px rgba(31,75,153,0.4), 0 4px 16px rgba(31,75,153,0.2);
+
+  /* Typography */
+  --font-sans:    "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", Inter, ui-sans-serif, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+  --font-size-base: 15px;
+  --line-height-base: 1.5;
+
+  /* Transitions */
+  --transition-fast:   120ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base:   200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Light Theme ─────────────────────────────────────────────────────── */
+.light {
+  --bg-base:      #FFFFFF;
+  --bg-primary:   #F8F9FA;
+  --bg-card:      #FFFFFF;
+  --bg-elevated:  #F1F3F5;
+  --bg-hover:     #E9ECEF;
+  --text-primary:   #121417;
+  --text-secondary: #495057;
+  --text-tertiary:  #868E96;
+  --text-disabled:  #ADB5BD;
+  --border-subtle:  #F1F3F5;
+  --border-default: #DEE2E6;
+  --border-strong:  #CED4DA;
+  --primary:           #A88B4E;
+  --primary-hover:     #8C7240;
+  --primary-foreground:#FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* ── Base resets ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+::selection {
+  background: rgba(198,169,107,0.25);
+  color: var(--text-primary);
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+
+/* ── Reduced motion ──────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
